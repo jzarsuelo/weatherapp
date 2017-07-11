@@ -9,4 +9,6 @@ public interface MvpView {
     void onError(String message);
 
     void showMessage(String message);
+
+    void setUp();
 }

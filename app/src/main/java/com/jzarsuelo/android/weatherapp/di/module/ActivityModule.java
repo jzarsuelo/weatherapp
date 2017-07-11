@@ -4,6 +4,9 @@ import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 
 import com.jzarsuelo.android.weatherapp.di.PerActivity;
+import com.jzarsuelo.android.weatherapp.ui.splash.SplashMvpPresenter;
+import com.jzarsuelo.android.weatherapp.ui.splash.SplashMvpView;
+import com.jzarsuelo.android.weatherapp.ui.splash.SplashPresenter;
 
 import dagger.Module;
 import dagger.Provides;
@@ -37,4 +40,9 @@ public class ActivityModule {
         return new CompositeDisposable();
     }
 
+    @Provides
+    @PerActivity
+    SplashMvpPresenter<SplashMvpView> provideSplashPresenter(SplashPresenter<SplashMvpView> splashPresenter) {
+        return splashPresenter;
+    }
 }
