@@ -7,8 +7,8 @@ android {
         applicationId "com.jzarsuelo.android.weatherapp"
         minSdkVersion 19
         targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        versionCode 3333
+        versionName "3.3"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -17,10 +17,23 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    productFlavors {
+        // defaultConfig is used for production flavor
+        dev {
+            versionNameSuffix '-dev'
+            applicationId 'com.jzarsuelo.android.weatherapp.dev'
+        }
+        
+        // test keyword is not allowed, instead I used "qa"
+        qa {
+            versionNameSuffix '-qa'
+            applicationId 'com.jzarsuelo.android.weatherapp.qa'
+        }
+    }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
