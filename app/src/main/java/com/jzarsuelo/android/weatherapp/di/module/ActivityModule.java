@@ -4,6 +4,9 @@ import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 
 import com.jzarsuelo.android.weatherapp.di.PerActivity;
+import com.jzarsuelo.android.weatherapp.ui.main.MainMvpPresenter;
+import com.jzarsuelo.android.weatherapp.ui.main.MainMvpView;
+import com.jzarsuelo.android.weatherapp.ui.main.MainPresenter;
 import com.jzarsuelo.android.weatherapp.ui.splash.SplashMvpPresenter;
 import com.jzarsuelo.android.weatherapp.ui.splash.SplashMvpView;
 import com.jzarsuelo.android.weatherapp.ui.splash.SplashPresenter;
@@ -44,5 +47,11 @@ public class ActivityModule {
     @PerActivity
     SplashMvpPresenter<SplashMvpView> provideSplashPresenter(SplashPresenter<SplashMvpView> splashPresenter) {
         return splashPresenter;
+    }
+
+    @Provides
+    @PerActivity
+    MainMvpPresenter<MainMvpView> provideMainPresenter(MainPresenter<MainMvpView> mainPresenter) {
+        return mainPresenter;
     }
 }
