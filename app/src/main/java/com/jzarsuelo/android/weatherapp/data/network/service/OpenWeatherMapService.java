@@ -7,7 +7,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 /**
- * Created by Pao on 12/7/17.
+ * Contains all the HTTP request that can be used by this app
  */
 
 public interface OpenWeatherMapService {

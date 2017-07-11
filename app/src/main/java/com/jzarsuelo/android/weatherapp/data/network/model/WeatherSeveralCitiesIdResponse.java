@@ -6,7 +6,8 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 /**
- * Created by Pao on 12/7/17.
+ * Class that represent root response of
+ * {@link com.jzarsuelo.android.weatherapp.data.network.service.OpenWeatherMapService}
  */
 
 public class WeatherSeveralCitiesIdResponse {
