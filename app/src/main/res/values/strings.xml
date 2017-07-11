@@ -2,4 +2,5 @@
     <string name="app_name">Weather App</string>
     <string name="general_error">Error occurs.</string>
     <string name="action_refresh">Refresh</string>
+    <string name="error_no_data">No data was loaded.</string>
 </resources>

@@ -12,6 +12,6 @@ import retrofit2.http.Query;
 
 public interface OpenWeatherMapService {
 
-    @GET("/group?units=metric")
+    @GET("group?units=metric")
     Observable<WeatherSeveralCitiesIdResponse> getWeather(@Query("id") String ids, @Query("appid") String apiKey);
 }

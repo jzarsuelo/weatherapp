@@ -4,8 +4,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -24,6 +22,8 @@ import butterknife.ButterKnife;
 public class MainActivity extends BaseActivity
         implements MainMvpView{
 
+    private static final String LOG_TAG = MainActivity.class.getSimpleName();
+
     @Inject
     MainMvpPresenter<MainMvpView> mPresenter;
 
@@ -32,6 +32,7 @@ public class MainActivity extends BaseActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        setUp();
     }
 
     @Override
@@ -73,5 +74,10 @@ public class MainActivity extends BaseActivity
     @Override
     public void updateWeatherData(List<WeatherSeveralCitiesIdResponseItem> data) {
 
+    }
+
+    @Override
+    public void noDataFetched() {
+        onError( getString(R.string.error_no_data) );
     }
 }

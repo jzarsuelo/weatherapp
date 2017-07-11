@@ -11,7 +11,7 @@ class WeatherInfo {
 
     @SerializedName("temp")
     @Expose
-    private Integer temp;
+    private Double temp;
 
     @SerializedName("pressure")
     @Expose
@@ -29,11 +29,11 @@ class WeatherInfo {
     @Expose
     private Integer tempMax;
 
-    public Integer getTemp() {
+    public Double getTemp() {
         return temp;
     }
 
-    public void setTemp(Integer temp) {
+    public void setTemp(Double temp) {
         this.temp = temp;
     }
 
