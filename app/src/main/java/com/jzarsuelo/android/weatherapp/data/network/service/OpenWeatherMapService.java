@@ -7,7 +7,8 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 /**
- * Contains all the HTTP request that can be used by this app
+ * Contains all the HTTP request for
+ * <a href="http://openweathermap.org/api">Open Weather Map API</a>
  */
 
 public interface OpenWeatherMapService {

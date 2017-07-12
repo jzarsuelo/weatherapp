@@ -9,8 +9,9 @@ import javax.inject.Singleton;
 import io.reactivex.Observable;
 
 /**
- * Created by Pao on 12/7/17.
+ * Class for comminicating to data channels which is not limited to Local DB and API calls
  */
+
 @Singleton
 public class AppDataManager implements DataManager {
 
