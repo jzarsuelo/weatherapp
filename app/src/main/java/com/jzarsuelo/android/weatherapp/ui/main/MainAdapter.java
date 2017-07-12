@@ -21,7 +21,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by Pao on 12/7/17.
+ * {@link RecyclerView.Adapter} for binding data from <a href="http://openweathermap.org/api">Open Weather Map API</a>
  */
 
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
@@ -79,6 +79,10 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     }
 
+    /**
+     * Helper method in changing the data of the adapter
+     * @param data    new data to display
+     */
     public void updateData(List<WeatherSeveralCitiesIdResponseItem> data) {
 
         mData = data;
@@ -108,6 +112,10 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
                         return;
                     }
 
+                    navigateToDetailScreen();
+                }
+
+                private void navigateToDetailScreen() {
                     int position = getAdapterPosition();
 
                     WeatherSeveralCitiesIdResponseItem item = mData.get(position);
