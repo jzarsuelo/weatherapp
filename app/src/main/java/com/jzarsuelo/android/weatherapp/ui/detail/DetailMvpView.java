@@ -11,4 +11,5 @@ public interface DetailMvpView extends MvpView {
 
     void updateView(WeatherSeveralCitiesIdResponseItem responseItem);
 
+    void noDataFetched();
 }

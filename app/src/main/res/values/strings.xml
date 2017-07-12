@@ -1,6 +1,16 @@
 <resources>
     <string name="app_name">Weather App</string>
+
+    <!-- Error messages -->
     <string name="general_error">Error occurs.</string>
-    <string name="action_refresh">Refresh</string>
     <string name="error_no_data">No data was loaded.</string>
+
+    <!-- Menu -->
+    <string name="action_refresh">Refresh</string>
+
+    <!-- Detail module -->
+    <string name="description">Weather: %1$s</string>
+    <string name="min_temp">Min Temperature: %1$s</string>
+    <string name="max_temp">Max Temperature: %1$s</string>
+    <string name="humidity">Humidity: %1$s</string>
 </resources>

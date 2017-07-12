@@ -2,6 +2,7 @@ package com.jzarsuelo.android.weatherapp.di.component;
 
 import com.jzarsuelo.android.weatherapp.di.PerActivity;
 import com.jzarsuelo.android.weatherapp.di.module.ActivityModule;
+import com.jzarsuelo.android.weatherapp.ui.detail.DetailActivity;
 import com.jzarsuelo.android.weatherapp.ui.main.MainActivity;
 import com.jzarsuelo.android.weatherapp.ui.splash.SplashActivity;
 
@@ -17,4 +18,6 @@ public interface ActivityComponent {
     void inject(SplashActivity splashActivity);
 
     void inject(MainActivity  mainActivity);
+
+    void inject(DetailActivity detailActivity);
 }
