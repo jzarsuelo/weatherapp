@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name">Weather App</string>
 
     <!-- Error messages -->
@@ -18,7 +19,5 @@
     <string name="min_temp">Min Temperature: %1$s\u00B0C</string>
     <string name="max_temp">Max Temperature: %1$s\u00B0C</string>
     <string name="humidity">Humidity: %1$s</string>
-
-
 
 </resources>

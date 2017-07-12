@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Error messages -->
+    <string name="general_error">May technical na problema</string>
+    <string name="error_no_data">Walang nakuhang impormasyon</string>
+    <string name="warning_connection">Siguraduhing may internet connection ang iyong telepono</string>
+
+    <!-- Main module -->
+    <string name="main_weather_descr">%1$s - %2$s</string>
+    <string name="temp">Temperatura: %1$s\u00B0C</string>
+
+    <!-- Detail module -->
+    <string name="description">Panahon: %1$s</string>
+    <string name="min_temp">Mababang Temperatura: %1$s\u00B0C</string>
+    <string name="max_temp">Mataas na Temperatura: %1$s\u00B0C</string>
+    <string name="humidity">Alinsangan: %1$s</string>
+</resources>
