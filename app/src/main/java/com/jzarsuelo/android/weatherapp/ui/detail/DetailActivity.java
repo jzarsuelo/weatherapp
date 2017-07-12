@@ -86,8 +86,13 @@ public class DetailActivity extends BaseActivity
         final int itemId = item.getItemId();
 
         switch (itemId) {
+
             case R.id.action_refresh:
-                 mPresenter.updateData(mCityId);
+                mPresenter.updateData(mCityId);
+                return true;
+
+            case android.R.id.home:
+                finish();
                 return true;
         }
 
@@ -109,14 +114,28 @@ public class DetailActivity extends BaseActivity
 
         Weather weather = responseItem.getWeather().get(0);
 
+        Drawable placeholderDrawable = ContextCompat.getDrawable(this, R.drawable.ic_placeholder);
+        placeholderDrawable.setAlpha(50);
+
         Picasso.with(this)
                 .load("http://openweathermap.org/img/w/"+weather.getIcon()+".png")
+                .placeholder(placeholderDrawable)
                 .into(mWeatherImageView);
 
-        mDescriptionTextView.setText(weather.getDescription());
-        mMaxTempTextView.setText( responseItem.getMain().getTempMax().toString() );
-        mMinTempTextView.setText( responseItem.getMain().getTempMin().toString() );
-        mHumidityTextView.setText( responseItem.getMain().getHumidity().toString() );
+        String description = String.format(getString(R.string.description), weather.getDescription());
+        mDescriptionTextView.setText( description );
+
+        String maxTemp = String.format(getString(R.string.max_temp),
+                responseItem.getMain().getTempMax().toString());
+        mMaxTempTextView.setText( maxTemp );
+
+        String minTemp = String.format(getString(R.string.min_temp),
+                responseItem.getMain().getTempMin().toString());
+        mMinTempTextView.setText( minTemp );
+
+        String humidity = String.format(getString(R.string.humidity),
+                responseItem.getMain().getHumidity().toString());
+        mHumidityTextView.setText( humidity );
     }
 
     @Override

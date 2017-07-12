@@ -1,6 +1,7 @@
 package com.jzarsuelo.android.weatherapp.ui.main;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import com.jzarsuelo.android.weatherapp.R;
 import com.jzarsuelo.android.weatherapp.data.network.model.Weather;
 import com.jzarsuelo.android.weatherapp.data.network.model.WeatherSeveralCitiesIdResponseItem;
+import com.jzarsuelo.android.weatherapp.ui.detail.DetailActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -93,6 +95,26 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
         public ViewHolder(View itemView) {
             super(itemView);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    if (mData == null) {
+                        return;
+                    }
+
+                    int position = getAdapterPosition();
+
+                    WeatherSeveralCitiesIdResponseItem item = mData.get(position);
+
+                    Intent i = new Intent(mContext, DetailActivity.class);
+                    i.putExtra( DetailActivity.EXTRA_CITY_NAME, item.getName() );
+                    i.putExtra( DetailActivity.EXTRA_CITY_ID, item.getId().toString() );
+
+                    mContext.startActivity(i);
+                }
+            });
 
             ButterKnife.bind(this, itemView);
         }

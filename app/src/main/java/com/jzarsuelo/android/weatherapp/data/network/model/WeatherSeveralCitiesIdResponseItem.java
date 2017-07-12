@@ -24,6 +24,10 @@ public class WeatherSeveralCitiesIdResponseItem {
     @Expose
     private String name;
 
+    @SerializedName("id")
+    @Expose
+    private Long id;
+
     public List<Weather> getWeather() {
         return weather;
     }
@@ -46,5 +50,13 @@ public class WeatherSeveralCitiesIdResponseItem {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

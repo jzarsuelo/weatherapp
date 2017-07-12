@@ -10,7 +10,7 @@
 
     <!-- Detail module -->
     <string name="description">Weather: %1$s</string>
-    <string name="min_temp">Min Temperature: %1$s</string>
-    <string name="max_temp">Max Temperature: %1$s</string>
+    <string name="min_temp">Min Temperature: %1$s\u00B0C</string>
+    <string name="max_temp">Max Temperature: %1$s\u00B0C</string>
     <string name="humidity">Humidity: %1$s</string>
 </resources>
