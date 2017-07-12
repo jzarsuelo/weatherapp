@@ -4,6 +4,9 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -16,6 +19,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
@@ -24,8 +28,13 @@ public class MainActivity extends BaseActivity
 
     private static final String LOG_TAG = MainActivity.class.getSimpleName();
 
+    @BindView(R.id.recycler_weather)
+    RecyclerView mRecyclerView;
+
     @Inject
     MainMvpPresenter<MainMvpView> mPresenter;
+
+    private MainAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +42,14 @@ public class MainActivity extends BaseActivity
         setContentView(R.layout.activity_main);
 
         setUp();
+
+        mAdapter = new MainAdapter(this);
+
+        mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(this,
+                DividerItemDecoration.VERTICAL));
     }
 
     @Override
@@ -68,12 +85,11 @@ public class MainActivity extends BaseActivity
         getActivityComponent().inject(this);
 
         mPresenter.onAttach(this);
-
     }
 
     @Override
     public void updateWeatherData(List<WeatherSeveralCitiesIdResponseItem> data) {
-
+        mAdapter.updateData(data);
     }
 
     @Override

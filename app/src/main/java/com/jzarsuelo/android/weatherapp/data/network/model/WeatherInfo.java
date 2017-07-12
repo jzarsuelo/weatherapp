@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
  * Created by Pao on 12/7/17.
  */
 
-class WeatherInfo {
+public class WeatherInfo {
 
     @SerializedName("temp")
     @Expose
