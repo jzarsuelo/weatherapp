@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.jzarsuelo.android.weatherapp.BuildConfig;
 import com.jzarsuelo.android.weatherapp.R;
 import com.jzarsuelo.android.weatherapp.data.network.model.Weather;
 import com.jzarsuelo.android.weatherapp.data.network.model.WeatherSeveralCitiesIdResponseItem;
@@ -117,8 +118,10 @@ public class DetailActivity extends BaseActivity
         Drawable placeholderDrawable = ContextCompat.getDrawable(this, R.drawable.ic_placeholder);
         placeholderDrawable.setAlpha(50);
 
+        String imageUrl = String.format(BuildConfig.OPEN_WEATHER_ICON_BASE_URL, weather.getIcon());
+
         Picasso.with(this)
-                .load("http://openweathermap.org/img/w/"+weather.getIcon()+".png")
+                .load(imageUrl)
                 .placeholder(placeholderDrawable)
                 .into(mWeatherImageView);
 

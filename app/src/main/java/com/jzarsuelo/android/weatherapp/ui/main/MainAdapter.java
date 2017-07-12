@@ -52,14 +52,18 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         }
 
         WeatherSeveralCitiesIdResponseItem responseItem = mData.get(position);
-
         Weather weatherObj = responseItem.getWeather().get(0);
-        String weatherStr = weatherObj.getMain() + " - " + weatherObj.getDescription();
-        String temperatureStr = responseItem.getMain().getTemp().toString() + " C";
-        String locationStr = responseItem.getName();
 
+        String weatherStr = String.format(mContext.getString(R.string.main_weather_descr),
+                weatherObj.getMain(), weatherObj.getDescription());
         holder.mWeatherTextView.setText( weatherStr );
+
+
+        String temperatureStr = String.format(mContext.getString(R.string.temp),
+                responseItem.getMain().getTemp().toString());
         holder.mTemperature.setText( temperatureStr );
+
+        String locationStr = responseItem.getName();
         holder.mLocationTextView.setText( locationStr );
 
     }

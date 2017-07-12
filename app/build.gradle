@@ -20,6 +20,7 @@ android {
     buildTypes.each {
         it.buildConfigField 'String', 'OPEN_WEATHER_MAP_KEY', OPEN_WEATHER_MAP_KEY
         it.buildConfigField 'String', 'OPEN_WEATHER_BASE_URL', OPEN_WEATHER_BASE_URL
+        it.buildConfigField 'String', 'OPEN_WEATHER_ICON_BASE_URL', OPEN_WEATHER_ICON_BASE_URL
     }
     productFlavors {
         // defaultConfig is used for production flavor

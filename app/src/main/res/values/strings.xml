@@ -8,6 +8,10 @@
     <!-- Menu -->
     <string name="action_refresh">Refresh</string>
 
+    <!-- Main module -->
+    <string name="main_weather_descr">%1$s - %2$s</string>
+    <string name="temp">Temp: %1$s\u00B0C</string>
+
     <!-- Detail module -->
     <string name="description">Weather: %1$s</string>
     <string name="min_temp">Min Temperature: %1$s\u00B0C</string>
