@@ -50,6 +50,14 @@ public class MainActivity extends BaseActivity
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this,
                 DividerItemDecoration.VERTICAL));
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        mPresenter.updateData();
     }
 
     @Override

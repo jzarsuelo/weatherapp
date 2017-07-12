@@ -1,5 +1,9 @@
 package com.jzarsuelo.android.weatherapp.ui.base;
 
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -30,6 +34,8 @@ public abstract class BaseActivity extends AppCompatActivity
      * Used for cleanup {@link butterknife.ButterKnife} bindings
      */
     private Unbinder mUnBinder;
+
+    private ProgressDialog mProgressDialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -73,5 +79,29 @@ public abstract class BaseActivity extends AppCompatActivity
 
     public void setUnBinder(Unbinder unBinder) {
         mUnBinder = unBinder;
+    }
+
+    @Override
+    public void showLoading() {
+
+        if (mProgressDialog == null) {
+
+            mProgressDialog = new ProgressDialog(this);
+            mProgressDialog.show();
+
+            if (mProgressDialog.getWindow() != null) {
+                mProgressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            }
+
+            mProgressDialog.setContentView(R.layout.progress_dialog);
+            mProgressDialog.setIndeterminate(true);
+        }
+
+        mProgressDialog.show();
+    }
+
+    @Override
+    public void hideLoading() {
+        mProgressDialog.cancel();
     }
 }

@@ -27,6 +27,8 @@ public class DetailPresenter<V extends DetailMvpView> extends BasePresenter<V>
     @Override
     public void updateData(String id) {
 
+        getMvpView().showLoading();
+
         getCompositeDisposable().add(
                 getDataManager().getWeather(id)
                         .subscribeOn( Schedulers.io() )
@@ -35,6 +37,8 @@ public class DetailPresenter<V extends DetailMvpView> extends BasePresenter<V>
                             @Override
                             public void accept(@NonNull WeatherSeveralCitiesIdResponse response)
                                     throws Exception {
+
+                                getMvpView().hideLoading();
 
                                 if (response != null) {
                                     getMvpView().updateView(response.getResponseItemList().get(0));

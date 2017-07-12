@@ -30,6 +30,8 @@ public class MainPresenter<V extends MainMvpView> extends BasePresenter<V>
         // TODO change location of the static ids 
         String stringIds = "3067696,2643741,5391959";
 
+        getMvpView().showLoading();
+
         getCompositeDisposable().add(
                 getDataManager().getWeather(stringIds)
                     .subscribeOn( Schedulers.io() )
@@ -38,6 +40,8 @@ public class MainPresenter<V extends MainMvpView> extends BasePresenter<V>
                         @Override
                         public void accept(@NonNull WeatherSeveralCitiesIdResponse response)
                                 throws Exception {
+
+                            getMvpView().hideLoading();
 
                             if (response != null) {
                                 getMvpView().updateWeatherData(response.getResponseItemList());

@@ -11,4 +11,8 @@ public interface MvpView {
     void showMessage(String message);
 
     void setUp();
+
+    void showLoading();
+
+    void hideLoading();
 }

@@ -71,6 +71,13 @@ public class DetailActivity extends BaseActivity
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+
+        mPresenter.updateData(mCityId);
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main, menu);
