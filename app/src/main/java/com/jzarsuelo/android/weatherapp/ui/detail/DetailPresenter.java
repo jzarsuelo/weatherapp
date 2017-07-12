@@ -27,6 +27,11 @@ public class DetailPresenter<V extends DetailMvpView> extends BasePresenter<V>
     @Override
     public void updateData(String id) {
 
+        if ( !getMvpView().isNetworkConnected() ) {
+            getMvpView().showNoNetworkMessage();
+            return;
+        }
+
         getMvpView().showLoading();
 
         getCompositeDisposable().add(

@@ -1,6 +1,5 @@
 package com.jzarsuelo.android.weatherapp.ui.main;
 
-import com.jzarsuelo.android.weatherapp.R;
 import com.jzarsuelo.android.weatherapp.data.DataManager;
 import com.jzarsuelo.android.weatherapp.data.network.model.WeatherSeveralCitiesIdResponse;
 import com.jzarsuelo.android.weatherapp.ui.base.BasePresenter;
