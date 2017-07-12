@@ -4,6 +4,7 @@
     <!-- Error messages -->
     <string name="general_error">Error occurs.</string>
     <string name="error_no_data">No data was loaded.</string>
+    <string name="warning_connection">Please check internet connection.</string>
 
     <!-- Menu -->
     <string name="action_refresh">Refresh</string>
@@ -17,4 +18,7 @@
     <string name="min_temp">Min Temperature: %1$s\u00B0C</string>
     <string name="max_temp">Max Temperature: %1$s\u00B0C</string>
     <string name="humidity">Humidity: %1$s</string>
+
+
+
 </resources>

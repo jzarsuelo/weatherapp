@@ -1,5 +1,6 @@
 package com.jzarsuelo.android.weatherapp.ui.main;
 
+import com.jzarsuelo.android.weatherapp.R;
 import com.jzarsuelo.android.weatherapp.data.DataManager;
 import com.jzarsuelo.android.weatherapp.data.network.model.WeatherSeveralCitiesIdResponse;
 import com.jzarsuelo.android.weatherapp.ui.base.BasePresenter;
@@ -26,6 +27,11 @@ public class MainPresenter<V extends MainMvpView> extends BasePresenter<V>
 
     @Override
     public void updateData() {
+
+        if ( !getMvpView().isNetworkConnected() ) {
+            getMvpView().showNoNetworkMessage();
+            return;
+        }
 
         // TODO change location of the static ids 
         String stringIds = "3067696,2643741,5391959";

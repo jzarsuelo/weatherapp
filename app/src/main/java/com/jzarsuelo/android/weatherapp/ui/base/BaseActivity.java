@@ -14,6 +14,7 @@ import com.jzarsuelo.android.weatherapp.WeatherApp;
 import com.jzarsuelo.android.weatherapp.di.component.ActivityComponent;
 import com.jzarsuelo.android.weatherapp.di.component.DaggerActivityComponent;
 import com.jzarsuelo.android.weatherapp.di.module.ActivityModule;
+import com.jzarsuelo.android.weatherapp.utils.NetworkUtils;
 
 import butterknife.Unbinder;
 
@@ -103,5 +104,15 @@ public abstract class BaseActivity extends AppCompatActivity
     @Override
     public void hideLoading() {
         mProgressDialog.cancel();
+    }
+
+    @Override
+    public boolean isNetworkConnected() {
+        return NetworkUtils.isNetworkConnected(this);
+    }
+
+    @Override
+    public void showNoNetworkMessage() {
+        showMessage(getString(R.string.warning_connection));
     }
 }
